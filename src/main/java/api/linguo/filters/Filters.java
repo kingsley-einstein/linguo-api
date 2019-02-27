@@ -27,7 +27,7 @@ public class Filters implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
 
         res.addHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-        res.addHeader("Access-Control-Allow-Origin", "*");
+        res.addHeader("Access-Control-Allow-Origin", "http://localhost:8100, http://192.168.43.72:8100, http://192.168.56.1:8100, http://192.168.99.1:8100");
         res.addHeader("Access-Control-Allow-Headers", "Accept-Language, Content-Type, Content-Language, Authorization");
         res.addHeader("Access-Control-Max-Age", "3600");
         res.addHeader("Access-Control-Allow-Credentials", "true");

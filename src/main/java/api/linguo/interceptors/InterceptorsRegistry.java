@@ -21,7 +21,7 @@ public class InterceptorsRegistry implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("*")
                 .allowedHeaders("Content-Type", "Authorization", "Accept-Language", "Content-Language")
-                .allowedOrigins("*")
+                .allowedOrigins("*", "http://localhost:8100")
                 .allowCredentials(true)
                 .allowedMethods("GET", "POST", "PUT", "OPTIONS", "DELETE");
     }

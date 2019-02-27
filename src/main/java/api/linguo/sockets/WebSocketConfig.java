@@ -20,7 +20,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry
         .addEndpoint("/linguo-endpoint")
-        .setAllowedOrigins("*")
+        .setAllowedOrigins("http://localhost:8100", "http://192.168.43.72:8100", "http://192.168.56.1:8100", "http://192.168.99.1:8100")
         .withSockJS();
     }
 }

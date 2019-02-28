@@ -3,6 +3,8 @@ package api.linguo.controllers;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import api.linguo.sockets.pojo.MessagePojo;
 //import api.linguo.models.User;
@@ -10,10 +12,12 @@ import api.linguo.sockets.pojo.MessagePojo;
 @Controller
 public class WebSocketController {
 
-    @MessageMapping("/message")
-    @SendTo("/chat/get")
-    public MessagePojo message(String message) {
-        return new MessagePojo(message);
+    @Autowired
+    private SimpMessagingTemplate template;
+
+    @MessageMapping("/chat/get")
+    public void message(String message) {
+        this.template.convertAndSend("/chat", message);
     }
 
 }
